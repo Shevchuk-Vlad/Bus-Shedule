@@ -59,6 +59,7 @@ class StopScheduleFragment: Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         val busStopAdapter = BusStopListAdapter({})
+        //Respond to data changes using Flow
         recyclerView.adapter = busStopAdapter
         lifecycle.coroutineScope.launch {
             viewModel.scheduleForStopName(stopName).collect() {
